@@ -137,7 +137,11 @@ sequelize.sync({alter: true}).then(() => {
       customerServiceNumber,
       req.fields.to,
       `${baseURL}/surveyCallAnswered`,
-      {answerMethod: 'POST'}
+      {
+        answerMethod: 'POST',
+        hangup_url: `${baseURL}/hangup/`,
+        hangup_method: 'POST'        
+      }
     )
     res.send(call)
   })
