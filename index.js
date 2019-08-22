@@ -60,7 +60,6 @@ const Call = sequelize.define('call', {
   to: { type: Sequelize.STRING },
   direction: { type: Sequelize.STRING },
   duration: { type: Sequelize.STRING },
-  parentUUID: { type: Sequelize.STRING },
   cost: { type: Sequelize.DECIMAL },
   hangupCause: { type: Sequelize.STRING },
   hangupSource: { type: Sequelize.STRING }
@@ -192,7 +191,6 @@ sequelize.sync({alter: true}).then(() => {
       from: req.fields.From, 
       to: req.fields.To, 
       duration: req.fields.Duration, 
-      parentUUID: req.fields.ParentCallUUID,
       cost: req.fields.TotalCost, 
       hangupCause: req.fields.HangupCauseName, 
       hangupSource: req.fields.HangupSource
